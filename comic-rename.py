@@ -10,16 +10,7 @@ root.withdraw()
 comic_folder = filedialog.askdirectory()
 
 comics = []
+no_files = 0
 for root, dirs, files in os.walk(comic_folder):
     for file in files:
-        os.rename(os.path.join(root, file), os.path.join(root, re.sub(r'\([^.]*\.', '.', file)))
-
-
-# Isolate file type
-# a = 'asd(2015)sjnnf.cbz'
-# b = re.sub(r'\([^.]*\.', '.', a)
-
-# Isolate (YYYY)
-
-for comic in comics:
-    pass
+        os.rename(os.path.join(root, file), os.path.join(root, re.sub(r'\)[^.]*\.', ').', file)))
