@@ -1,4 +1,3 @@
-# If the comic contains this work "x-men" move it into this folder
 import tkinter as tk
 from tkinter import filedialog
 import os
