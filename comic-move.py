@@ -33,5 +33,5 @@ for root, dirs, files in os.walk(comic_folder):
             shutil.move(os.path.join(root, file), xmen)
         elif "one item" in file.lower():  # If "one item" in filename, execute next line
             shutil.move(os.path.join(root, file), placeholder)
-        if any(x in file.lower() for x in list_ph):  # SAMPLE TEST USING LIST (list_ph)
+        elif any(x in file.lower() for x in list_ph):  # SAMPLE TEST USING LIST (list_ph)
             shutil.move(os.path.join(root, file), placeholder)
