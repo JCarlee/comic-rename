@@ -6,11 +6,6 @@ import shutil
 a = tk.Tk()
 a.withdraw()
 
-# --------- CHANGE DESTINATION PATHS ---------
-# Where files will move
-# xmen = r"C:\Users\jcarlee\Desktop\z"
-# placeholder = r"C:\Users\john.carlee\Desktop\ComicMove\CHANGE_ME"
-
 xmen = r"/Users/carlosbell/Library/Mobile Documents/com~apple~CloudDocs/Comics/_Dawn of X"
 avengers = r"/Users/carlosbell/Library/Mobile Documents/com~apple~CloudDocs/Comics/_Avengers"
 spiderman = r"/Users/carlosbell/Library/Mobile Documents/com~apple~CloudDocs/Comics/_Spider Man"
@@ -45,17 +40,18 @@ list_event = ["contagion", "absolute carnage", "annihilation", "ravencroft", "th
 list_starwars = ["star wars"]
 list_review = ["aero", "squirrel girl", "sword master", "tarot", "gwenpool", "marvel preview"]
 
+# List of all lists
 list_lists = [list_x, list_av, list_sp, list_co, list_othrm, list_event, list_starwars, list_review]
-
-# Prompt user to select starting folder
-comic_folder = filedialog.askdirectory()
-filenames = []
 
 
 def comic_move(start, dest):
     shutil.move(start, dest)
     print("{0} moved to {1}.".format(start, dest))
 
+
+# Prompt user to select starting folder
+comic_folder = filedialog.askdirectory()
+filenames = []
 
 for root, dirs, files in os.walk(comic_folder):
     for file in files:
@@ -112,22 +108,3 @@ for root, dirs, files in os.walk(comic_folder):
                 comic_move(os.path.join(root, file), multi)
             else:
                 comic_move(os.path.join(root, file), reviewdelete)
-
-# Main loop
-# for root, dirs, files in os.walk(comic_folder):
-#     for file in files:
-#         if file not in filenames:
-#             filenames.append(file)
-#         elif file in filenames:
-#             gone = os.path.join(root, file)
-#             os.remove(gone)
-#             print("{0} deleted.".format(gone))
-#             break
-#         if any(x in file.lower() for x in list_x):  # If any values in list_x are in filename, execute next line
-#             m = os.path.join(root, file)
-#             shutil.move(m, xmen)
-#             print("{0} moved to {1}.".format(m, xmen))
-#         elif any(x in file.lower() for x in list_ph):  # SAMPLE TEST USING LIST (list_ph)
-#             shutil.move(os.path.join(root, file), placeholder)
-
-
